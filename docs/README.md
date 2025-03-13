@@ -31,47 +31,55 @@ Esta pasta contém os diagramas que descrevem a arquitetura, funcionalidades e e
 
 ---
 
-### 3. **Diagrama de Implantação (Deployment Diagram)**
+### 3. Diagrama de Implantação (Deployment Diagram)
 
-- **Arquivo**: `implantacao.png` ou `implantacao.drawio`
-- **Propósito**: Este diagrama mostra como os componentes do sistema são implantados em produção, incluindo servidores, bancos de dados e comunicação entre eles.
+- **Arquivo**: `b-log_deploy.png`
+- **Propósito**: Este diagrama ilustra a infraestrutura de implantação do sistema, mostrando como os componentes principais são distribuídos e como eles se comunicam entre si.
 - **Componentes Representados**:
-  - **Frontend**: Aplicação React hospedada na Vercel/Netlify.
-  - **Backend**: API Node.js + Express hospedada no Heroku/Render.
-  - **Banco de Dados**: PostgreSQL/MySQL hospedado no AWS RDS/ElephantSQL.
-- **Como Usar**: Use este diagrama para planejar a infraestrutura e entender como os componentes se comunicam.
+  - **Frontend**: Aplicação React + TypeScript executada no navegador do cliente (**Client Device**).
+  - **Backend**: API Node.js + Express, contendo serviços como:
+    - **Auth Service**: Responsável pela autenticação de usuários.
+    - **Post Service**: Gerencia as operações relacionadas aos posts.
+    - **Newsletter Service**: Lida com as assinaturas e newsletters.
+  - **Banco de Dados**: PostgreSQL, que armazena os dados do sistema.
+  - **Application Server**: Backend executado em um **Docker Container**.
+  - **Database Server**: Banco de dados PostgreSQL executado em um **Docker Container** separado.
+- **Comunicação**:
+  - **Frontend** e **Backend** se comunicam via **HTTP/REST** na porta **5000**.
+  - **Backend** e **Banco de Dados** se comunicam via **TCP/IP** na porta **5432**.
+- **Como Usar**: Utilize este diagrama para entender a distribuição dos componentes, a comunicação entre eles e a infraestrutura necessária para o funcionamento do sistema.
 
 ---
 
-### 4. **Diagrama de Componentes**
+### 4. Diagrama de Componentes
 
 - **Arquivo**: `componentes.png` ou `componentes.drawio`
-- **Propósito**: Este diagrama descreve os componentes do sistema e suas dependências, tanto no frontend quanto no backend.
+- **Propósito**: Este diagrama descreve os componentes do sistema e suas dependências, tanto no frontend quanto no backend, mostrando como eles interagem e se comunicam.
 - **Componentes Principais**:
-  - **Frontend**: Componentes React (ex: `Header`, `PostList`, `SubscriptionForm`).
-  - **Backend**: Módulos Node.js (ex: `UserController`, `PostService`, `AuthMiddleware`).
-- **Como Usar**: Use este diagrama para entender a modularização do sistema e como os componentes interagem.
-
----
-
-## Como Atualizar os Diagramas
-
-1. Abra os arquivos editáveis (ex: `.drawio`) nas ferramentas de diagramação (ex: Draw.io, Lucidchart).
-2. Faça as alterações necessárias.
-3. Exporte os diagramas para PNG ou SVG e salve na pasta `docs/`.
-4. Atualize este `README.md` se houver mudanças significativas nos diagramas.
+  - **Frontend**:
+    - **Reader UI**: Interface do usuário para leitores do blog.
+    - **Admin UI**: Interface do usuário para administradores do blog.
+    - **Tecnologia**: React + TypeScript.
+  - **Backend**:
+    - **Auth Service**: Responsável pela autenticação de usuários, utilizando JWT (JSON Web Tokens).
+    - **Post Service**: Gerencia as operações relacionadas aos posts.
+    - **Newsletter Service**: Lida com as assinaturas e newsletters.
+    - **Tecnologia**: Node.js + Express.
+  - **Banco de Dados**:
+    - **PostgreSQL**: Armazena os dados do sistema.
+- **Interfaces e Comunicação**:
+  - **IAuthAPI**: Interface para o serviço de autenticação.
+  - **IPostAPI**: Interface para o serviço de posts.
+  - **INewsletterAPI**: Interface para o serviço de newsletter.
+  - **IDatabaseAPI**: Interface para o banco de dados.
+  - **HTTP/REST**: Comunicação entre os componentes via protocolo HTTP/REST.
+- **Dependências**:
+  - **Auth Service** e **Post Service** dependem do **Database Service** para acessar os dados.
+  - **Frontend** depende dos serviços do backend (**Auth Service**, **Post Service**, **Newsletter Service**) para funcionalidades específicas.
+- **Como Usar**: Utilize este diagrama para entender a modularização do sistema, as dependências entre os componentes e como eles se comunicam.
 
 ---
 
 ## Ferramentas Utilizadas
 
-- **Draw.io**: Para criar e editar diagramas.
-- **Lucidchart**: Alternativa para diagramas mais complexos.
-- **GitHub/GitLab**: Para versionamento e compartilhamento da documentação.
-
----
-
-## Links Úteis
-
-- [Documentação do Draw.io](https://www.diagrams.net/)
-- [Documentação do Lucidchart](https://www.lucidchart.com/pages/)
+- **Draw.io**: Para criar e editar diagramas. 
