@@ -53,7 +53,7 @@ Esta pasta contém os diagramas que descrevem a arquitetura, funcionalidades e e
 
 ### 4. Diagrama de Componentes
 
-- **Arquivo**: `componentes.png` ou `componentes.drawio`
+- **Arquivo**: `b-log_componentes.png`
 - **Propósito**: Este diagrama descreve os componentes do sistema e suas dependências, tanto no frontend quanto no backend, mostrando como eles interagem e se comunicam.
 - **Componentes Principais**:
   - **Frontend**:
