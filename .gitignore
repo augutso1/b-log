@@ -49,3 +49,35 @@ logs/
 
 # Arquivos específicos para seu projeto
 # Adicione aqui quaisquer outros arquivos ou diretórios específicos do seu projeto
+# Arquivos específicos do frontend (além do que já está no frontend/.gitignore)
+/frontend/.env
+/frontend/build/
+/frontend/dist/
+
+# Arquivos específicos do backend
+/backend/.env
+/backend/dist/
+/backend/build/
+/backend/logs/
+/backend/coverage/
+
+# Arquivos de banco de dados
+/database/*.sqlite
+/database/*.db
+/database/backups/
+/database/data/
+
+# Arquivos de configuração local
+*.local.json
+*.local.js
+config.local.*
+
+# Arquivos temporários de desenvolvimento
+*.todo
+*.notes
+.scratch/
+
+# Arquivos de deploy
+.vercel
+.netlify
+.firebase/
