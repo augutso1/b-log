@@ -1,5 +1,6 @@
 # 📖 b-log
-
+### **🛠 Status do Projeto**
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 Bem-vindo ao **b-log**! 🚀 Um blog pessoal desenvolvido para compartilhar ideias, reflexões e conteúdos exclusivos.
 
 ## ✨ Sobre o Projeto
