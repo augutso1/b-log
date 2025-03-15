@@ -47,8 +47,7 @@ logs/
 # Arquivos de cobertura de testes
 /coverage/
 
-# Arquivos específicos para seu projeto
-# Adicione aqui quaisquer outros arquivos ou diretórios específicos do seu projeto
+
 # Arquivos específicos do frontend (além do que já está no frontend/.gitignore)
 /frontend/.env
 /frontend/build/
@@ -76,6 +75,7 @@ config.local.*
 *.todo
 *.notes
 .scratch/
+.seed.ts
 
 # Arquivos de deploy
 .vercel

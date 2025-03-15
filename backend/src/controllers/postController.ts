@@ -11,3 +11,6 @@ export const createPost = async (req: Request, res: Response) => {
     const newPost = await createPostService(post);
     res.json(newPost);
 }
+
+
+

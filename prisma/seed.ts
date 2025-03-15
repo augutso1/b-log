@@ -1,20 +1,20 @@
-// Exemplo básico
+// Post básico para teste
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
-async function criarUsuario() {
-  const novoUsuario = await prisma.user.create({
-    data: {
-      email: 'exemplo@email.com',
-      name: 'João',
-      password: '123456',
-    }
-  })
-  console.log(novoUsuario)
-}
 
-criarUsuario()
-  .catch((e) => {
-    console.error(e)
-    process.exit(1)
-  })
+  async function criarPost() {
+    const novoPost = await prisma.post.create({
+      data: {
+        title: 'Meu primeiro post',
+        content: 'Este é o conteúdo do meu primeiro post.',
+      }
+    })
+    console.log(novoPost)
+  }
+
+  criarPost()
+    .catch((e) => {
+      console.error(e)
+      process.exit(1)
+    })
