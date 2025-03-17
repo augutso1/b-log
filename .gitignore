@@ -81,3 +81,11 @@ config.local.*
 .vercel
 .netlify
 .firebase/
+
+# Environment files
+/backend/.env
+/frontend/.env
+
+# But allow example files
+!/backend/.env.example
+!/frontend/.env.example
