@@ -4,7 +4,7 @@ import { createUser, getUser } from '../controllers/userController';
 import { getHome } from '../controllers/homeController';
 import { registerUser, loginUser } from '../controllers/authController';
 import { authenticateToken } from '../middleware/auth';
-
+import { emailController } from '../controllers/emailController';
 const router = Router();
 
 // Rotas públicas
@@ -17,5 +17,5 @@ router.get('/posts', authenticateToken, getPosts);
 router.post('/posts', authenticateToken, createPost);
 router.get('/users', authenticateToken, getUser);
 router.post('/users', authenticateToken, createUser);
-
+router.post('/email/send', authenticateToken, emailController.sendEmail);
 export default router;  
