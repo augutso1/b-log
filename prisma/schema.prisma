@@ -23,6 +23,13 @@ model Post {
   updatedAt DateTime @updatedAt
 }
 
+model Subscription {
+  id           String  @id @default(uuid())
+  userId       String
+  email        String
+  receivePosts Boolean @default(false)
+}
+
 generator client {
   provider = "prisma-client-js"
 }
