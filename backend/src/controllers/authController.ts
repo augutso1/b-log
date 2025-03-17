@@ -25,11 +25,16 @@ export const loginUser = async (req: Request, res: Response) => {
     const { email, password } = req.body;
     const result = await loginService({ email, password });
     res.status(200).json(result);
-  } catch (error) {
+  }
+  // Confirma o login de um usuário
+  
+  catch (error) {
     if (error instanceof Error) {
       res.status(401).json({ error: error.message });
     } else {
       res.status(500).json({ error: 'An unexpected error occurred' });
     }
   }
+  // Caso ocorra um erro, retorna um erro 401 ou 500
 };
+// Controller que realiza o login de um usuário
