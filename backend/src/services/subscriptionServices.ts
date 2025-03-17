@@ -3,12 +3,22 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const subscribeService = async (email: string, userId: string) => {
+    // Primeiro, verificar se o usuário existe
+    const user = await prisma.user.findUnique({
+        where: { id: userId }
+    });
+
+    if (!user) {
+        throw new Error('User not found');
+    }
+
     const subscription = await prisma.subscription.create({
         data: {
-            email,
-            userId
+            email: user.email, // Usar o email do usuário encontrado
+            userId,
+            receivePosts: true
         }
-    })
+    });
     
     return subscription;
 }

@@ -5,6 +5,8 @@ import { getHome } from '../controllers/homeController';
 import { registerUser, loginUser } from '../controllers/authController';
 import { authenticateToken } from '../middleware/auth';
 import { emailController } from '../controllers/emailController';
+import { subscriptionController } from '../controllers/subscriptionController';
+
 const router = Router();
 
 // Rotas públicas
@@ -18,4 +20,6 @@ router.post('/posts', authenticateToken, createPost);
 router.get('/users', authenticateToken, getUser);
 router.post('/users', authenticateToken, createUser);
 router.post('/email/send', authenticateToken, emailController.sendEmail);
+router.post('/email/subscription', authenticateToken, subscriptionController.subscription);
+
 export default router;  
