@@ -7,7 +7,7 @@ export const createUserService = async (user: User) => {
     return newUser;
 }
 
-export const getUserService = async ()=> {
+export const getUserService = async (id: string)=> {
     const getUser = await prisma.user.findMany();
     return getUser;
 }

@@ -2,12 +2,20 @@ import { Router } from 'express';
 import { createPost, getPosts } from '../controllers/postController';
 import { createUser, getUser } from '../controllers/userController';
 import { getHome } from '../controllers/homeController';
+import { registerUser, loginUser } from '../controllers/authController';
+import { authenticateToken } from '../middleware/auth';
+
 const router = Router();
 
-router.get('/posts', getPosts);
-router.post('/posts', createPost);
-router.post('/users', createUser);
-router.get('/users', getUser);
+// Public
 router.get('/', getHome);
+router.post('/auth/register', registerUser);
+router.post('/auth/login', loginUser);
 
-export default router;
+// Protected 
+router.get('/posts', authenticateToken, getPosts);
+router.post('/posts', authenticateToken, createPost);
+router.get('/users', authenticateToken, getUser);
+router.post('/users', authenticateToken, createUser);
+
+export default router;  

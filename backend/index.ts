@@ -14,3 +14,5 @@ app.use(routes);
 app.listen(PORT, () => {
 	console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+//adicionar comentários após a implementação da autenticação por completo

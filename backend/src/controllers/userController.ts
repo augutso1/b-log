@@ -8,7 +8,7 @@ export const createUser = async (req: Request, res: Response) => {
 }
 
 export const getUser = async (req: Request, res: Response) => {
-    const user = req.body;
-    const getUser = await getUserService();
+    const userID = req.params.id;
+    const getUser = await getUserService(userID);
     res.json(getUser);
 }
