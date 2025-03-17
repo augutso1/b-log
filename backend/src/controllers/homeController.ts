@@ -9,3 +9,4 @@ export const getHome = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Erro ao carregar dados da home.' });
   }
 };
+// Função para buscar dados da homepage

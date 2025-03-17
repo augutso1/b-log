@@ -6,9 +6,11 @@ export const createUser = async (req: Request, res: Response) => {
     const newUser = await createUserService(user);
     res.json(newUser);
 }
+// Função para criar usuário
 
 export const getUser = async (req: Request, res: Response) => {
     const userID = req.params.id;
     const getUser = await getUserService(userID);
     res.json(getUser);
 }
+// Função para buscar usuário

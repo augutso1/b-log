@@ -6,14 +6,19 @@ export const registerUser = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
     const result = await registerService({ name, email, password });
     res.status(201).json(result);
-  } catch (error) {
+  }
+  // Confirma o registro de um usuário
+  
+  catch (error) {
     if (error instanceof Error) {
       res.status(400).json({ error: error.message });
     } else {
       res.status(500).json({ error: 'An unexpected error occurred' });
     }
   }
+  // Caso ocorra um erro, retorna um erro 400 ou 500
 };
+// Controller que realiza o registro de um usuário
 
 export const loginUser = async (req: Request, res: Response) => {
   try {

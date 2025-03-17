@@ -7,12 +7,12 @@ import { authenticateToken } from '../middleware/auth';
 
 const router = Router();
 
-// Public
+// Rotas públicas
 router.get('/', getHome);
 router.post('/auth/register', registerUser);
 router.post('/auth/login', loginUser);
 
-// Protected 
+// Rotas protegidas
 router.get('/posts', authenticateToken, getPosts);
 router.post('/posts', authenticateToken, createPost);
 router.get('/users', authenticateToken, getUser);
