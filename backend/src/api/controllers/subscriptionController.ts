@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { subscribeService } from '../services/subscriptionServices';
+import { subscribeService } from '../../services/subscriptionServices';
 
 export const subscriptionController = {
     subscription: async (req: Request, res: Response) => {

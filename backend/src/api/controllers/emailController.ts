@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { emailService } from '../services/emailService';
+import { emailService } from '../../services/emailService';
 
 export const emailController = {
     sendEmail: async (req: Request, res: Response) => {

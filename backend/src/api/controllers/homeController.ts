@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getHomeService } from '../services/homeServices';
+import { getHomeService } from '../../services/homeServices';
 
 export const getHome = async (req: Request, res: Response) => {
   try {
