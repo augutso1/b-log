@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { emailService } from '../../services/emailService';
 
-export const emailController = {
+export const email = {
     sendEmail: async (req: Request, res: Response) => {
         try {
             const { to, subject, text } = req.body;

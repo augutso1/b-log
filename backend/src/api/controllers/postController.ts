@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { getPostsService, createPostService } from '../../services/postServices';
 
 export const getPosts = async (req: Request, res: Response) => {
@@ -7,9 +7,10 @@ export const getPosts = async (req: Request, res: Response) => {
 }
 // Função para buscar posts
 
-export const createPost = async (req: Request, res: Response) => {
-    const post = req.body;
-    const newPost = await createPostService(post);
-    res.json(newPost);
-}
+export const createPost = async (req: Request, res: Response, next: NextFunction) => {
+        const post = req.body;
+        const newPost = await createPostService(post);
+        res.json(newPost);
+    }
+
 // Função para criar post

@@ -1,8 +1,10 @@
 import jwt from 'jsonwebtoken';
 import { User } from '@prisma/client';
-import env from 'env-var';
+import dotenv from 'dotenv';
 
-const JWT_SECRET = env.get('JWT_SECRET').required().asString(); // Chave secreta para o token
+dotenv.config();
+
+const JWT_SECRET = process.env.JWT_SECRET as string; // Chave secreta para o token
 const TOKEN_EXPIRATION = '24h'; // Tempo de expiração do token
 
 export interface JWTPayload {
