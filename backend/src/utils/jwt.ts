@@ -10,13 +10,15 @@ const TOKEN_EXPIRATION = '24h'; // Tempo de expiração do token
 export interface JWTPayload {
     userId: string;
     email: string;
+    role : string;
 }
-// Definir o padrão de tipo JWTPayloadde dados para o token
+// Definir o padrão de tipo JWTPayload dados para o token
 
 export const generateToken = (user: User): string => {
     const payload: JWTPayload = {
         userId: user.id,
         email: user.email,
+        role: user.role
     };
     // Criar o payload para gerar o token
 

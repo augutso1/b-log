@@ -6,30 +6,21 @@ import asyncHandler from 'express-async-handler';
 const prisma = new PrismaClient();
 
 export const authorizeAdmin = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    try {
-        // Busca o userId no token
-        const userId = (req.user as JWTPayload)?.userId;
-        
-        if (!userId) {
-            res.status(401).json({ error: 'User not authenticated' });
-            return;
-        }
-        
-        // Verificar se o usuário é admin
-        const user = await prisma.user.findUnique({
-            where: { id: userId }
-        });
-        
-        if (user && user.role === 'admin') {
-            next(); 
-        } else {
-            res.status(403).json({ error: 'Access denied: Admin privileges required' });
-        }
+    const user = req.user as JWTPayload;
+    
+    if (!user) {
+        res.status(401).json({ error: 'User not authenticated' });
+        return;
     }
-    // Busca no banco de dados se o usuário é admin
-    catch (error) {
-        console.error('Authorization error:', error);
-        res.status(500).json({ error: 'Internal server error during authorization' });
+    
+    // Debug
+
+    console.log('User role:', user.role);
+
+    // Verifica a role no payload do token JWT
+    if (user.role === 'admin') {
+        next();
+    } else {
+        res.status(403).json({ error: 'Access denied: Admin privileges required' });
     }
-    // Erro 403 forbidden
 });
