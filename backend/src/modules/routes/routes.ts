@@ -14,13 +14,13 @@ const router = Router();
 router.get('/', getHome);
 router.post('/auth/register', registerUser);
 router.post('/auth/login', loginUser);
+router.get('/posts', getPosts);
 
 // Rotas protegidas
-router.get('/posts', authenticateToken, getPosts);
 router.post('/admin/posts', authenticateToken, authorizeAdmin, createPost);
 router.get('/users', authenticateToken, getUser);
 router.post('/users', authenticateToken, createUser);
 router.post('/email/send', authenticateToken, email.sendEmail);
 router.post('/email/subscription', authenticateToken, subscriptionController.subscription);
 
-export default router;  
+export default router;

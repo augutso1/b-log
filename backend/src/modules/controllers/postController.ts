@@ -8,9 +8,9 @@ export const getPosts = async (req: Request, res: Response) => {
 // Função para buscar posts
 
 export const createPost = async (req: Request, res: Response, next: NextFunction) => {
-        const post = req.body;
-        const newPost = await createPostService(post);
-        res.json(newPost);
-    }
+    const post = req.body;
+    const newPost = await createPostService(post);
+    res.json(newPost);
+}
 
 // Função para criar post

@@ -12,8 +12,8 @@ export const getPostsService = async () => {
 export const createPostService = async (post: Post) => {
     console.log('Criando post:', post); // Log para debug
 
-    const newPost = await prisma.post.create({ 
-        data: post 
+    const newPost = await prisma.post.create({
+        data: post
     });
 
     console.log('Post criado:', newPost); // Log para debug
@@ -34,7 +34,7 @@ export const createPostService = async (post: Post) => {
         console.log('Post não está publicado, pulando envio de newsletter');
     }
     // Log para debug
-    
+
     return newPost;
 }
 // Função para criar post
