@@ -1,7 +1,7 @@
 export const fetchPosts = async () => {
     try {
         // Use a fallback URL if the environment variable is not set
-        const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL
+        const apiBaseUrl = "http://localhost:3000"
 
         const response = await fetch(`${apiBaseUrl}/posts`, {
             method: "GET",
